@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triennale Milano – Luce del Nord</title>
+  <link rel="stylesheet" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" href="css/stile_esercizio4.css">
+  <link rel="stylesheet" href="css/configuratore.css">
+  <!-- Three.js da CDN: "three" è la libreria, "three/addons/" sono gli strumenti extra (controlli, loader...) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <!-- il nostro codice del visualizzatore 3D (type="module" perché usa "import";
+       i moduli partono solo quando la pagina è pronta, quindi può stare nell'head) -->
+  <script type="module" src="js/configuratore.js"></script>
+  <!-- la collezione di occhiali: tanti modellini piccoli che girano -->
+  <script type="module" src="js/collezione.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+        <div class="row pt-4 pb-5 mb-5 align-items-center">
+            <div class="col-6 col-lg-2">
+              <a href="#"><img class="logo" src="img/logo-triennale.svg" alt="Triennale Milano"></a>
+            </div>
+            <div class="col-lg-9 nav-wrapper d-none d-lg-block">
+                <ul class="nav-list">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link selected"><strong>Mostre</strong></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Museo del <strong>Design</strong></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><strong>Teatro</strong></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><strong>Visita</strong></a>
+                      </li>
+                </ul>
+            </div>
+            <div class="col-6 col-lg-1 d-flex justify-content-end align-items-center">
+              <button class="btn btn-cerca">Cerca</button>
+              <button class="btn btn-menu d-block d-lg-none">Menu</button>
+            </div>
+        </div>
+
+        <div class="mobile-nav-wrapper d-lg-none">
+                 <button class="btn btn-close mb-3">Close</button> 
+                <ul class="nav-list">
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link selected"><strong>Mostre</strong></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link">Museo del <strong>Design</strong></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><strong>Teatro</strong></a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="#" class="nav-link"><strong>Visita</strong></a>
+                      </li>
+                </ul> 
+        </div>
+    </div>
+
+    <div class="container-fluid content-wrapper">
+          
+          <div class="row prima-row mb-5">
+                <div class="col-12 col-sm-6 mb-3 mb-md-0">
+                    <h1 class="font-3">Luce del Nord</h1>
+                </div>
+                <div class="col-12 col-sm-5">
+                    <h2 class="font-2 color-gray font-normal">La lampada PH5 di Poul Henningsen, un oggetto da osservare nelle sue diverse configurazioni</h2>
+                </div>
+          </div>
+            
+          <div class="row mb-5 pt-3">
+              <div class="col-12 testo-colonne">
+                  La PH5 di Poul Henningsen, progettata nel 1958, è un’icona del design danese. Caratterizzata da un sistema di paralumi multipli, diffonde la luce in modo uniforme senza abbagliare. L’approccio di Henningsen in tutti i suoi progetti di illuminazione fu tecnico prima che estetico: la forma dei paralumi nasce dal calcolo di come la luce viene riflessa e schermata. La mostra racconta la lampada attraverso le sue configurazioni: le versioni pensate per l’allestimento e quelle che ogni visitatore può comporre da sé, cambiando i colori delle singole parti.
+              </div>
+          </div>
+
+    </div>
+
+
+    <!-- qui apriremo il div .sfondo-0 -->
+        <div class="sfondo-0">
+        <div class="container content-wrapper">
+
+            <div class="row mb-5 pt-4 pb-4 align-items-center">
+                <div class="col-8 offset-3 col-md-6 offset-md-5 col-lg-5 mt-4 offset-lg-6 bg-color-white p-4">
+                    <strong>La mostra</strong><br> Una sala, una lampada, molte versioni. La PH5 è appesa al centro e cambia configurazione durante la visita: si guarda da sotto, da lato, da lontano.
+
+                </div>
+            </div>
+        </div>
+        </div>    
+    <!-- qui si chiude .sfondo-0 -->
+
+
+    <div class="container content-wrapper">
+            
+          <div class="row mb-5 pt-3">
+              <div class="col-12 testo-2colonne">
+                  Henningsen ha progettato la PH5 per bilanciare luce diretta e indiretta, migliorando il benessere attraverso un’illuminazione confortevole, pensando soprattutto alla vita nei paesi nordici, dove la luce naturale può mancare per molti mesi. Ogni paralume ha un compito preciso: quello grande scherma la sorgente, quelli piccoli la distribuiscono verso il basso, l’anello e la calotta correggono il colore della luce. Per questo cambiare il colore di una parte cambia anche il modo in cui la lampada si legge nello spazio.
+              </div>
+          </div>
+    </div>
+
+
+    <!-- qui apriremo il div .sfondo-1 -->
+     <div class="sfondo-1">
+        <div class="container content-wrapper">
+            <div class="row mb-5 pt-4 pb-4 align-items-center">
+                <div class="col-12 col-lg-6">
+                    <img class="img-fluid" src="img/ph5-dettaglio.jpg" alt="La PH5 vista da sotto, accesa">
+                </div>
+                <div class="col-9 offset-1 col-md-6 col-lg-5 mt-4 offset-lg-0">
+                    <strong>Il visualizzatore</strong><br> Più in basso trovi la lampada in 3D: puoi girarla, guardarla nelle versioni pensate per la mostra e comporre la tua, una parte alla volta.
+
+                </div>
+            </div>
+        </div>
+        </div>
+    <!-- qui si chiude .sfondo-1 -->
+
+    <!-- ===== qui inizia la sezione "In mostra" con il visualizzatore ===== -->
+    <div class="container content-wrapper sezione-configuratore">
+        <div class="row mb-4">
+            <div class="col-12 col-lg-8">
+                <p class="sovratitolo">In mostra · Luce del Nord</p>
+                <h2 class="font-3">Osserva la PH5</h2>
+            </div>
+        </div>
+        <!-- class="configuratore" = qui JavaScript crea un visualizzatore 3D;
+             i data- dicono quale modello caricare e le sue particolarità (vedi configuratore.js) -->
+        <div class="row mb-5 configuratore"
+             data-modello="models/ph5.glb"
+             data-escludi="cavo"
+             data-collegate="cavo:attacco"
+             data-luce="diffusore">
+
+            <!-- PASSO 1: lo spazio per il 3D -->
+            <div id="visore" class="visore col-12 col-lg-8">
+                <p class="visore-segnaposto">Qui arriverà il modello 3D</p>
+            </div>
+
+
+            <!-- PASSO 2: il pannello con il titolo e le opzioni da scegliere -->
+            <div class="pannello col-12 col-lg-4">
+                <p class="sovratitolo">Poul Henningsen, 1958</p>
+                <h3 class="font-3">PH5</h3>
+                <p class="descrizione">Un sistema di paralumi multipli che diffonde la luce in modo uniforme, senza abbagliare.</p>
+
+                <!-- scelta del colore, parte per parte:
+                     data-parti = i nomi delle parti del modello 3D (dati in Blender) che prendono questo colore -->
+                <div class="opzione" data-parti="paralume_grande attacco">
+                    <h3 class="opzione-titolo">Paralume grande e attacco <span class="opzione-valore">Blu notte</span></h3>
+                    <div class="campioni">
+                        <button type="button" class="campione selected" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò"></button>
+                        <button type="button" class="campione" data-color="#f2ead8" data-nome="Panna" aria-label="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro"></button>
+                    </div>
+                </div>
+
+                <div class="opzione" data-parti="paralume_superiore">
+                    <h3 class="opzione-titolo">Paralume superiore <span class="opzione-valore">Blu notte</span></h3>
+                    <div class="campioni">
+                        <button type="button" class="campione selected" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò"></button>
+                        <button type="button" class="campione" data-color="#f2ead8" data-nome="Panna" aria-label="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro"></button>
+                    </div>
+                </div>
+
+                <div class="opzione" data-parti="anello_riflettore">
+                    <h3 class="opzione-titolo">Anello riflettente <span class="opzione-valore">Blu notte</span></h3>
+                    <div class="campioni">
+                        <button type="button" class="campione selected" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò"></button>
+                        <button type="button" class="campione" data-color="#f2ead8" data-nome="Panna" aria-label="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro"></button>
+                    </div>
+                </div>
+
+                <div class="opzione" data-parti="paralume_medio paralume_inferiore">
+                    <h3 class="opzione-titolo">Paralumi inferiori <span class="opzione-valore">Blu notte</span></h3>
+                    <div class="campioni">
+                        <button type="button" class="campione selected" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò"></button>
+                        <button type="button" class="campione" data-color="#f2ead8" data-nome="Panna" aria-label="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro"></button>
+                    </div>
+                </div>
+
+                <!-- accostamenti già pronti, con colori propri (diversi dai 5 campioni):
+                     data-colori = i codici delle 4 parti, data-nomi = i loro nomi (separati da virgola),
+                     nello stesso ordine dei gruppi qui sopra (grande e attacco, superiore, anello, inferiori) -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Accostamenti <span class="opzione-valore">Personalizzato</span></h3>
+                    <div class="accostamenti">
+                        <button type="button" class="accostamento" data-nome="Parigi"
+                            data-colori="#d8a7a0 #efe6d2 #b8955a #5b6470"
+                            data-nomi="Rosa cipria,Avorio,Oro antico,Grigio ardesia">Parigi</button>
+                        <button type="button" class="accostamento" data-nome="Lapponia"
+                            data-colori="#a9c7d8 #f4f6f7 #5fae8f #2e5c7a"
+                            data-nomi="Azzurro ghiaccio,Bianco neve,Verde aurora,Blu aurora">Lapponia</button>
+                        <button type="button" class="accostamento" data-nome="Bora Bora"
+                            data-colori="#2fa6a6 #e2cfa5 #e7735a #3f7a4a"
+                            data-nomi="Turchese laguna,Sabbia,Corallo,Verde palma">Bora Bora</button>
+                    </div>
+                </div>
+
+                <!-- grandezza regolabile con il cursore -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">
+                        <label for="grandezza">Grandezza</label>
+                        <span class="opzione-valore">100%</span>
+                    </h3>
+                    <input type="range" id="grandezza" class="cursore" min="50" max="150" step="5" value="100">
+                </div>
+
+                <!-- scelta della misura -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Misura <span class="opzione-valore">Classic · Ø 50 cm</span></h3>
+                    <div class="misure">
+                        <button type="button" class="misura" data-scala="0.6" data-nome="Mini · Ø 30 cm">Mini · Ø 30 cm</button>
+                        <button type="button" class="misura selected" data-scala="1" data-nome="Classic · Ø 50 cm">Classic · Ø 50 cm</button>
+                        <button type="button" class="misura" data-scala="1.2" data-nome="Grande · Ø 60 cm">Grande · Ø 60 cm</button>
+                    </div>
+                </div>
+
+                <!-- l'interruttore: accende e spegne la lampada -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Luce <span class="opzione-valore">Spenta</span></h3>
+                    <button type="button" class="interruttore" aria-pressed="false">Accendi</button>
+                </div>
+
+                <!-- l'animazione: la lampada si scompone nelle sue parti mentre fa un giro -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Animazione <span class="opzione-valore">Le parti della PH5</span></h3>
+                    <button type="button" class="anima">Avvia</button>
+                </div>
+
+                <!-- le viste: data-vista dice a JavaScript quale vista calcolare
+                     (la distanza della camera si calcola dalle misure della lampada) -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Vista <span class="opzione-valore">Prospettica</span></h3>
+                    <div class="viste">
+                        <button type="button" class="vista" data-vista="orizzontale" data-nome="Orizzontale">Orizzontale</button>
+                        <button type="button" class="vista selected" data-vista="prospettica" data-nome="Prospettica">Prospettica</button>
+                        <button type="button" class="vista" data-vista="verticale" data-nome="Verticale">Verticale</button>
+                        <button type="button" class="vista" data-vista="esplora" data-nome="Esplora">Esplora</button>
+                    </div>
+                </div>
+
+                <p class="nota">Trascina per girare la lampada, usa la rotella per avvicinarti.</p>
+            </div>
+
+            <!-- la galleria: 3 screen della lampada, creati da JavaScript (data-vista = quale vista)
+                 e aggiornati ogni volta che cambi qualcosa nel pannello -->
+            <div class="col-12 mt-4">
+                <h3 class="opzione-titolo">Galleria</h3>
+                <div class="row galleria">
+                    <figure class="col-12 col-md-4 galleria-voce">
+                        <img class="galleria-img" data-vista="prospettica" alt="La lampada PH5 in vista prospettica">
+                        <figcaption>Vista prospettica</figcaption>
+                    </figure>
+                    <figure class="col-12 col-md-4 galleria-voce">
+                        <img class="galleria-img" data-vista="orizzontale" alt="La lampada PH5 in vista orizzontale">
+                        <figcaption>Vista orizzontale</figcaption>
+                    </figure>
+                    <figure class="col-12 col-md-4 galleria-voce">
+                        <img class="galleria-img" data-vista="verticale" alt="La lampada PH5 in vista verticale, dall'alto">
+                        <figcaption>Vista verticale</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- ===== secondo configuratore: gli occhiali ===== -->
+        <div class="row mb-4">
+            <div class="col-12 col-lg-8">
+                <p class="sovratitolo">In mostra · Occhiali</p>
+                <h2 class="font-3">Osserva gli occhiali</h2>
+            </div>
+        </div>
+        <!-- data-stanghette = il gruppo del modello che contiene le stanghette (nella montatura) -->
+        <div class="row mb-5 configuratore"
+             data-modello="models/3d_occhiali_giuli.glb"
+             data-stanghette="aste">
+
+            <div id="visore-occhiali" class="visore col-12 col-lg-8">
+                <p class="visore-segnaposto">Qui arriverà il modello 3D</p>
+            </div>
+
+            <div class="pannello col-12 col-lg-4">
+                <p class="sovratitolo">Modello 3D</p>
+                <h3 class="font-3">Occhiali di Giuli</h3>
+                <p class="descrizione">Una montatura e due lenti da comporre a piacere, colore per colore.</p>
+
+                <!-- data-parti = i nomi dei gruppi nel modello 3D ("aste" = montatura, "lente" = lenti);
+                     data-materiale="trasparente" = le lenti sono come vetro colorato -->
+                <div class="opzione" data-parti="aste">
+                    <h3 class="opzione-titolo">Montatura <span class="opzione-valore">Blu notte</span></h3>
+                    <div class="campioni">
+                        <button type="button" class="campione selected" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò"></button>
+                        <button type="button" class="campione" data-color="#f2ead8" data-nome="Panna" aria-label="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro"></button>
+                    </div>
+                </div>
+
+                <div class="opzione" data-parti="lente" data-materiale="trasparente">
+                    <h3 class="opzione-titolo">Lenti <span class="opzione-valore">Panna</span></h3>
+                    <div class="campioni">
+                        <button type="button" class="campione" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò"></button>
+                        <button type="button" class="campione selected" data-color="#f2ead8" data-nome="Panna" aria-label="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro"></button>
+                    </div>
+                </div>
+
+                <!-- accostamenti: 2 colori, nell'ordine montatura, lenti -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Accostamenti <span class="opzione-valore">Personalizzato</span></h3>
+                    <div class="accostamenti">
+                        <button type="button" class="accostamento" data-nome="Parigi"
+                            data-colori="#d8a7a0 #5b6470"
+                            data-nomi="Rosa cipria,Grigio ardesia">Parigi</button>
+                        <button type="button" class="accostamento" data-nome="Lapponia"
+                            data-colori="#f4f6f7 #a9c7d8"
+                            data-nomi="Bianco neve,Azzurro ghiaccio">Lapponia</button>
+                        <button type="button" class="accostamento" data-nome="Bora Bora"
+                            data-colori="#e7735a #2fa6a6"
+                            data-nomi="Corallo,Turchese laguna">Bora Bora</button>
+                    </div>
+                </div>
+
+                <div class="opzione">
+                    <h3 class="opzione-titolo">
+                        <label for="grandezza-occhiali">Grandezza</label>
+                        <span class="opzione-valore">100%</span>
+                    </h3>
+                    <input type="range" id="grandezza-occhiali" class="cursore" min="50" max="150" step="5" value="100">
+                </div>
+
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Misura <span class="opzione-valore">Medium · 52 mm</span></h3>
+                    <div class="misure">
+                        <button type="button" class="misura" data-scala="0.9" data-nome="Small · 48 mm">Small · 48 mm</button>
+                        <button type="button" class="misura selected" data-scala="1" data-nome="Medium · 52 mm">Medium · 52 mm</button>
+                        <button type="button" class="misura" data-scala="1.1" data-nome="Large · 56 mm">Large · 56 mm</button>
+                    </div>
+                </div>
+
+                <!-- apre e chiude le stanghette -->
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Stanghette <span class="opzione-valore">Aperte</span></h3>
+                    <button type="button" class="stanghette" aria-pressed="false">Chiudi</button>
+                </div>
+
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Animazione <span class="opzione-valore">Le parti degli occhiali</span></h3>
+                    <button type="button" class="anima">Avvia</button>
+                </div>
+
+                <div class="opzione">
+                    <h3 class="opzione-titolo">Vista <span class="opzione-valore">Prospettica</span></h3>
+                    <div class="viste">
+                        <button type="button" class="vista" data-vista="orizzontale" data-nome="Orizzontale">Orizzontale</button>
+                        <button type="button" class="vista selected" data-vista="prospettica" data-nome="Prospettica">Prospettica</button>
+                        <button type="button" class="vista" data-vista="verticale" data-nome="Verticale">Verticale</button>
+                        <button type="button" class="vista" data-vista="esplora" data-nome="Esplora">Esplora</button>
+                    </div>
+                </div>
+
+                <p class="nota">Trascina per girare gli occhiali, usa la rotella per avvicinarti.</p>
+            </div>
+
+            <!-- la galleria degli occhiali: come quella della lampada -->
+            <div class="col-12 mt-4">
+                <h3 class="opzione-titolo">Galleria</h3>
+                <div class="row galleria">
+                    <figure class="col-12 col-md-4 galleria-voce">
+                        <img class="galleria-img" data-vista="prospettica" alt="Gli occhiali in vista prospettica">
+                        <figcaption>Vista prospettica</figcaption>
+                    </figure>
+                    <figure class="col-12 col-md-4 galleria-voce">
+                        <img class="galleria-img" data-vista="orizzontale" alt="Gli occhiali in vista orizzontale">
+                        <figcaption>Vista orizzontale</figcaption>
+                    </figure>
+                    <figure class="col-12 col-md-4 galleria-voce">
+                        <img class="galleria-img" data-vista="verticale" alt="Gli occhiali in vista verticale, dall'alto">
+                        <figcaption>Vista verticale</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== la collezione: tutti gli occhiali della classe, uno per modello =====
+             ordinati per colore (rossi, arancio, giallo, verde, poi trasparenti, bianco e nero, scuri).
+             Girano tutti insieme, alla stessa velocità; toccandone uno si apre la finestra .zoom.
+             I file uguali (stesso modello caricato da più persone) sono stati tolti:
+             il modello compare una volta sola e gli altri nomi sono in .collezione-anche.
+             data-modello = il file .glb da caricare (lo fa js/collezione.js) -->
+        <div class="row mb-4">
+            <div class="col-12 col-lg-8">
+                <p class="sovratitolo">In mostra · La collezione</p>
+                <h2 class="font-3">Tutti gli occhiali</h2>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-md-3 mb-5 collezione">
+            <!-- alessandromorri_pulito.glb = il file originale senza i disegni 2D (linee e scritte di Rhino)
+                 che c'erano accanto agli occhiali e li facevano sembrare minuscoli e spostati -->
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/alessandromorri_pulito.glb"
+                    data-parti-colore="Frontale:1; Stanghette:0; Cerniere:4">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:#ff0000"></span>Rosso</span>
+                    <span class="collezione-nome">Alessandro Morri</span>
+                    <span class="collezione-anche">con Linda Garnaroli</span>
+                    <span class="collezione-tipo">Occhiali sportivi avvolgenti</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Un frontale unico che avvolge il viso, con il ponte sagomato sul naso e stanghette lunghe e sottili.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>frontale rosso, stanghette verdi, cerniere blu</dd>
+                        <dt>Lenti</dt><dd>integrate nel frontale</dd>
+                        <dt>Misure (L × A × P)</dt><dd>147 × 48 × 161 mm</dd>
+                        <dt>Modello 3D</dt><dd>12 parti · 469.000 triangoli · 13,3 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <!-- data-rotazione-z="180": nel file questi occhiali sono capovolti (il naso era in alto) -->
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/martinacarnevali.glb"
+                    data-parti-colore="Montatura:1 0; Lenti:2" data-rotazione-z="180">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:#c03d3d"></span>Rosso ciliegia</span>
+                    <span class="collezione-nome">Martina Carnevali</span>
+                    <span class="collezione-anche">con Edoardo Fabbri</span>
+                    <span class="collezione-tipo">Occhiali a visiera</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una visiera unica e avvolgente con l'incavo per il naso; le stanghette partono dall'alto della montatura.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>montatura rosso ciliegia</dd>
+                        <dt>Lenti</dt><dd>trasparenti, effetto vetro</dd>
+                        <dt>Misure (L × A × P)</dt><dd>148 × 66 × 159 mm</dd>
+                        <dt>Modello 3D</dt><dd>28 parti · 38.000 triangoli · 2,3 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/AnnaPorcellini.glb"
+                    data-parti-colore="Struttura e lente:0; Gomma:1; Viti:2">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:#ff8000"></span>Arancione</span>
+                    <span class="collezione-nome">Anna Porcellini</span>
+                    <span class="collezione-anche">con Takwa Guezguez</span>
+                    <span class="collezione-tipo">Occhiali protettivi</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una lente unica e trasparente che avvolge il viso; naselli e terminali delle stanghette in gomma arancione, viti in metallo.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>struttura trasparente, gomma arancione, viti grigio metallo</dd>
+                        <dt>Lenti</dt><dd>trasparenti, effetto vetro</dd>
+                        <dt>Misure (L × A × P)</dt><dd>147 × 46 × 174 mm</dd>
+                        <dt>Modello 3D</dt><dd>10 parti · 41.000 triangoli · 1,5 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/lucagiorgetti.glb"
+                    data-parti-colore="Stanghette:4; Montatura:0 2; Naselli:1; Lente:3">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:#ffbb00"></span>Giallo ambra</span>
+                    <span class="collezione-nome">Luca Giorgetti</span>
+                    <span class="collezione-anche">con Viola Mongiusti</span>
+                    <span class="collezione-tipo">Occhiali sportivi a lente unica</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una grande lente panoramica con il profilo blu, naselli rossi e verdi e stanghette gialle che avvolgono la testa.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>stanghette giallo ambra, profilo blu, naselli rossi e verdi</dd>
+                        <dt>Lenti</dt><dd>lente unica panoramica</dd>
+                        <dt>Misure (L × A × P)</dt><dd>236 × 69 × 195 mm</dd>
+                        <dt>Modello 3D</dt><dd>8 parti · 37.000 triangoli · 1,4 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/Eleonora_Nobili.glb"
+                    data-parti-colore="Montatura:2; Lente:1; Bordo lente:0; Elastico:3">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:#b1ecd5"></span>Verde menta</span>
+                    <span class="collezione-nome">Eleonora Nobili</span>
+                    <span class="collezione-anche">con Sofia Bezzicheri</span>
+                    <span class="collezione-tipo">Maschera da sci</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una montatura morbida che segue la forma del viso, con la lente rossa e la fascia elastica per tenerla sulla testa.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>verde menta, dettagli verde scuro e neri</dd>
+                        <dt>Lenti</dt><dd>rossa, semitrasparente</dd>
+                        <dt>Misure (L × A × P)</dt><dd>169 × 90 × 127 mm</dd>
+                        <dt>Modello 3D</dt><dd>41 parti · 169.000 triangoli · 9,0 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <!-- data-montatura / data-lenti = "colore opacità" (opacità: 0 = invisibile, 1 = pieno)
+                 data-parti-lenti = le parti del modello che sono lenti (le altre sono montatura) -->
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/francescagalli.glb"
+                    data-parti-colore="Montatura:0; Lenti:1"
+                    data-montatura="#d6d0c4 0.55" data-lenti="#e3ebea 0.15" data-parti-lenti="lente">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino trasparente"></span>Cristallo</span>
+                    <span class="collezione-nome">Francesca Galli</span>
+                    <span class="collezione-anche">con Adele De Marini, Giulia Camasso</span>
+                    <span class="collezione-tipo">Occhiali a visiera</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una visiera unica e trasparente con un taglio morbido sul naso; le stanghette scendono curve dietro l'orecchio.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>montatura cristallo</dd>
+                        <dt>Lenti</dt><dd>trasparenti</dd>
+                        <dt>Misure (L × A × P)</dt><dd>170 × 81 × 192 mm</dd>
+                        <dt>Modello 3D</dt><dd>12 parti · 12.000 triangoli · 0,8 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <!-- data-rotazione = gradi da girare il modello perché guardi davanti come gli altri
+                 (questo nel file è girato al contrario) -->
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/Jacopo_Del_Bianco.glb"
+                    data-parti-colore="Frontale e lente:0; Stanghette:1 2" data-rotazione="180"
+                    data-montatura="#d6d0c4 0.55">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino trasparente"></span>Cristallo</span>
+                    <span class="collezione-nome">Jacopo Del Bianco</span>
+                    <span class="collezione-anche">con Gianmarco Tito, Giacomo Cerioni</span>
+                    <span class="collezione-tipo">Occhiali protettivi</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una lente unica con le protezioni laterali e stanghette larghe e piatte, tutto in un solo materiale trasparente.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>cristallo</dd>
+                        <dt>Lenti</dt><dd>unite al frontale, con protezioni laterali</dd>
+                        <dt>Misure (L × A × P)</dt><dd>158 × 68 × 155 mm</dd>
+                        <dt>Modello 3D</dt><dd>3 parti · 43.000 triangoli · 1,7 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/davidesebastianelli.glb"
+                    data-parti-colore="Montatura:1 0; Lente:2">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:linear-gradient(135deg,#f4f4f4 50%,#111111 50%)"></span>Bianco e nero</span>
+                    <span class="collezione-nome">Davide Sebastianelli</span>
+                    <span class="collezione-anche">con Luigi Boccarossa</span>
+                    <span class="collezione-tipo">Occhiali da laboratorio</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una barra superiore nera regge la lente unica con le protezioni laterali; le stanghette nere finiscono con un terminale curvo.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>barra e stanghette nere, lente bianca</dd>
+                        <dt>Lenti</dt><dd>lente unica con protezioni laterali</dd>
+                        <dt>Misure (L × A × P)</dt><dd>146 × 58 × 157 mm</dd>
+                        <dt>Modello 3D</dt><dd>27 parti · 25.000 triangoli · 1,0 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+            <!-- data-togli = parti del modello da non mostrare (qui il viso) -->
+            <figure class="collezione-voce" data-modello="models/modelli_occhiali_glbxweb/camilasaraviaruiz.glb"
+                    data-parti-colore="Montatura:2; Lenti:1" data-togli="testa_sx testa_dx">
+                <button type="button" class="collezione-visore" aria-label="Guarda da vicino"><canvas></canvas></button>
+                <figcaption>
+                    <span class="collezione-colore"><span class="collezione-pallino" style="background:#555045"></span>Grigio scuro</span>
+                    <span class="collezione-nome">Camila Saravia Ruiz</span>
+                    <span class="collezione-anche">con Federica Cancello</span>
+                    <span class="collezione-tipo">Occhiali a lente unica</span>
+                </figcaption>
+                <!-- la scheda di dettaglio: non si vede qui, collezione.js la copia nella finestra zoom -->
+                <div class="collezione-scheda" hidden>
+                    <p class="scheda-descrizione">Una montatura sottile grigio scuro corre sotto la lente e sul naso; la lente è unica, azzurra e semitrasparente.</p>
+                    <dl class="scheda-dati">
+                        <dt>Colori</dt><dd>montatura grigio scuro</dd>
+                        <dt>Lenti</dt><dd>azzurre, semitrasparenti</dd>
+                        <dt>Misure (L × A × P)</dt><dd>182 × 94 × 187 mm</dd>
+                        <dt>Modello 3D</dt><dd>116 parti · 9.500 triangoli · 0,8 MB</dd>
+                    </dl>
+                </div>
+            </figure>
+        </div>
+
+        <!-- la finestra che si apre toccando un paio di occhiali: il modello grande, da girare e zoomare.
+             <dialog> è una finestra già pronta dell'HTML (si chiude anche con il tasto Esc);
+             colore e nome li scrive collezione.js prendendoli dalla voce toccata -->
+        <dialog class="zoom" aria-label="Occhiali da vicino">
+            <div class="zoom-contenuto">
+                <div class="zoom-testa">
+                    <div>
+                        <p class="sovratitolo zoom-colore"></p>
+                        <h3 class="font-3 zoom-nome"></h3>
+                    </div>
+                    <button type="button" class="zoom-chiudi">Chiudi</button>
+                </div>
+                <div class="zoom-visore"></div>
+
+                <!-- la prova con la fotocamera (js/prova.js): il video e sopra il canvas con gli occhiali.
+                     playsinline = sul telefono il video resta nella pagina invece di andare a schermo intero -->
+                <div class="prova" hidden>
+                    <div class="prova-scena">
+                        <video playsinline muted></video>
+                    </div>
+                    <p class="prova-messaggio" hidden></p>
+                </div>
+
+                <div class="zoom-comandi">
+                    <button type="button" class="zoom-meno solo-3d" aria-label="Allontana">−</button>
+                    <button type="button" class="zoom-piu solo-3d" aria-label="Avvicina">+</button>
+                    <button type="button" class="zoom-riparti solo-3d">Vista iniziale</button>
+                    <button type="button" class="zoom-scatta solo-prova" hidden>Scatta foto</button>
+                    <button type="button" class="zoom-modo" aria-pressed="false">Provali con la fotocamera</button>
+                </div>
+
+                <!-- le foto scattate (js/foto.js): la foto grande, cosa farne e il rullino con tutte le foto -->
+                <div class="foto" hidden>
+                    <img class="foto-anteprima" alt="La tua foto con gli occhiali">
+                    <div class="foto-azioni">
+                        <button type="button" class="foto-condividi" hidden>Condividi</button>
+                        <button type="button" class="foto-email">Invia per email</button>
+                        <button type="button" class="foto-instagram">Instagram</button>
+                        <button type="button" class="foto-scarica">Scarica</button>
+                    </div>
+                    <p class="foto-messaggio" hidden></p>
+                    <div class="foto-rullino"></div>
+                </div>
+
+                <!-- i colori delle parti: prima si sceglie la parte (bottoni creati da collezione.js
+                     con data-parti-colore), poi il colore. Vale per il 3D, la prova e le foto.
+                     Campioni = i 5 colori del sito; Di tendenza = colori moda/design di quest'anno -->
+                <div class="zoom-colori" hidden>
+                    <h3 class="opzione-titolo">Colori <span class="opzione-valore"></span></h3>
+                    <div class="colori-parti"></div>
+
+                    <p class="colori-gruppo">Campioni</p>
+                    <div class="campioni">
+                        <button type="button" class="campione" data-color="#1b2a41" data-nome="Blu notte" aria-label="Blu notte" title="Blu notte"></button>
+                        <button type="button" class="campione" data-color="#6d1a2a" data-nome="Rosso bordò" aria-label="Rosso bordò" title="Rosso bordò"></button>
+                        <button type="button" class="campione" data-color="#f2ead8" data-nome="Panna" aria-label="Panna" title="Panna"></button>
+                        <button type="button" class="campione" data-color="#8a9a7b" data-nome="Verde salvia" aria-label="Verde salvia" title="Verde salvia"></button>
+                        <button type="button" class="campione" data-color="#3e2a1e" data-nome="Marrone scuro" aria-label="Marrone scuro" title="Marrone scuro"></button>
+                        <button type="button" class="campione" data-color="#111111" data-nome="Nero" aria-label="Nero" title="Nero" style="background:#111111"></button>
+                        <button type="button" class="campione" data-color="#6b4226" data-nome="Tartaruga" aria-label="Tartaruga" title="Tartaruga" style="background:radial-gradient(circle at 30% 30%, #c48a3f 0 18%, transparent 19%), radial-gradient(circle at 70% 65%, #a8692e 0 22%, transparent 23%), #4a2c17"></button>
+                        <button type="button" class="campione" data-color="#d6d0c4" data-nome="Cristallo" aria-label="Cristallo" title="Cristallo" style="background:#d6d0c4"></button>
+                    </div>
+
+                    <p class="colori-gruppo">Di tendenza</p>
+                    <div class="campioni">
+                        <button type="button" class="campione" data-color="#a47864" data-nome="Mocha Mousse (Pantone 2025)" aria-label="Mocha Mousse" title="Mocha Mousse · Pantone 2025" style="background:#a47864"></button>
+                        <button type="button" class="campione" data-color="#f0eee9" data-nome="Cloud Dancer (Pantone 2026)" aria-label="Cloud Dancer" title="Cloud Dancer · Pantone 2026" style="background:#f0eee9"></button>
+                        <button type="button" class="campione" data-color="#f3e3a0" data-nome="Giallo burro" aria-label="Giallo burro" title="Giallo burro" style="background:#f3e3a0"></button>
+                        <button type="button" class="campione" data-color="#9b1b30" data-nome="Rosso ciliegia" aria-label="Rosso ciliegia" title="Rosso ciliegia" style="background:#9b1b30"></button>
+                        <button type="button" class="campione" data-color="#b9a6d6" data-nome="Lavanda" aria-label="Lavanda" title="Lavanda" style="background:#b9a6d6"></button>
+                        <button type="button" class="campione" data-color="#1f4fa3" data-nome="Blu cobalto" aria-label="Blu cobalto" title="Blu cobalto" style="background:#1f4fa3"></button>
+                        <button type="button" class="campione" data-color="#6b7041" data-nome="Verde oliva" aria-label="Verde oliva" title="Verde oliva" style="background:#6b7041"></button>
+                        <button type="button" class="campione" data-color="#e8b4b8" data-nome="Rosa cipria" aria-label="Rosa cipria" title="Rosa cipria" style="background:#e8b4b8"></button>
+                    </div>
+
+                    <button type="button" class="colori-originali">Colori originali</button>
+                </div>
+
+                <!-- la scheda degli occhiali scelti: collezione.js ci copia la .collezione-scheda della voce -->
+                <div class="zoom-scheda"></div>
+
+                <!-- tutti gli occhiali, per cambiarli senza chiudere la finestra (li crea collezione.js) -->
+                <div class="zoom-scelta">
+                    <h3 class="opzione-titolo">Cambia occhiali</h3>
+                    <div class="zoom-elenco"></div>
+                </div>
+
+                <p class="nota solo-3d">Trascina per girare, usa la rotella (o due dita sul telefono) per zoomare.</p>
+                <p class="nota solo-prova" hidden>Guarda verso lo schermo: gli occhiali seguono il tuo viso. Il video resta sul tuo dispositivo e non viene inviato a nessuno.</p>
+            </div>
+        </dialog>
+    </div>
+    <!-- ===== qui finisce la sezione "In mostra" ===== -->
+
+    <!-- ===== Romeo: stessa struttura della sezione con la foto della PH5 ===== -->
+    <div class="container content-wrapper">
+        <div class="row mb-5 pt-4 pb-4 align-items-center">
+            <div class="col-12 col-lg-6">
+                <!-- illustrazione provvisoria: quando hai la foto vera, cambia in src="img/romeo.jpg" -->
+                <img class="img-fluid" src="img/romeo.svg" alt="Illustrazione di un barboncino, Romeo">
+            </div>
+            <div class="col-9 offset-1 col-md-6 col-lg-5 mt-4 offset-lg-0">
+                <strong>Romeo</strong><br> Il mio barboncino.
+            </div>
+        </div>
+    </div>
+
+    <!-- qui si inserisce il codice JavaScript -->
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const btnMenu = document.querySelector('.btn-menu');
+    const btnClose = document.querySelector('.btn-close');
+    const mobileNavWrapper = document.querySelector('.mobile-nav-wrapper');
+    const navLinks = document.querySelectorAll('.mobile-nav-wrapper .nav-link');
+    
+    // Assicurati che il display sia flex prima di aggiungere show
+    btnMenu.addEventListener('click', function() {
+        mobileNavWrapper.style.display = 'flex';
+        // Piccolo delay per permettere al display di attivarsi
+        setTimeout(() => {
+            mobileNavWrapper.classList.add('show');
+        }, 10);
+    });
+    
+    // Chiude il menu mobile
+    function closeMenu() {
+        mobileNavWrapper.classList.remove('show');
+        // Rimuovi display dopo l'animazione
+        setTimeout(() => {
+            if (!mobileNavWrapper.classList.contains('show')) {
+                mobileNavWrapper.style.display = 'none';
+            }
+        }, 300); // Stesso tempo della transizione CSS
+    }
+    
+    btnClose.addEventListener('click', closeMenu);
+    
+    mobileNavWrapper.addEventListener('click', function(e) {
+        let isLink = false;
+        navLinks.forEach(function(link) {
+            if (link.contains(e.target)) {
+                isLink = true;
+            }
+        });
+        
+        if (!isLink) {
+            closeMenu();
+        }
+    });
+});
+</script>
+
+
+
+
+</body>
+</html>
