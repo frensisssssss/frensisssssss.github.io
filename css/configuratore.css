@@ -1,0 +1,786 @@
+/* configuratore.css – la sezione "In mostra" con il visualizzatore 3D
+   (si aggiunge a stile_esercizio4.css senza modificarlo) */
+
+.sezione-configuratore {
+    padding-top: 48px;
+}
+
+/* ===== visore 3D (colonna sinistra) ===== */
+/* PASSO 3: il visore */
+.visore {
+    background: #f3efe8;
+    border-radius: 6px;
+    height: 675px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* a lampada accesa lo sfondo del visore si scurisce, come una stanza la sera,
+   così la luce della lampada si vede meglio */
+.visore {
+    transition: background 0.6s;
+}
+
+.visore.accesa {
+    background: #2e2b27;
+}
+
+/* il canvas creato da Three.js riempie il visore (ci servirà dall'es. 2) */
+.visore canvas {
+    display: block;
+    cursor: grab;
+    touch-action: none; /* sul telefono il trascinamento gira il cubo invece di scorrere la pagina */
+}
+
+.visore canvas:active {
+    cursor: grabbing;
+}
+
+/* PASSO 4: la scritta al centro del visore */
+.visore-segnaposto {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 16px;
+    margin: 0;
+}
+
+
+/* ===== pannello opzioni (colonna destra) ===== */
+.pannello {
+    /* solo sopra e sotto: a destra e a sinistra resta lo spazio di Bootstrap */
+    padding-top: 8px;
+    padding-bottom: 32px;
+}
+
+/* da schermo grande in su il pannello si stacca dal visore */
+@media (min-width: 992px) {
+    .pannello {
+        padding-left: 32px;
+    }
+}
+
+.sovratitolo {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 0 4px 0;
+}
+
+.descrizione {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.opzione {
+    border-top: solid 1px #e5e0d6;
+    padding: 16px 0;
+}
+
+.opzione-titolo {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.opzione-valore {
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+/* PASSO 5: i campioni in fila */
+.campioni {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 4px;
+}
+
+/* PASSO 6: i campioni diventano cerchi e quello scelto si riconosce */
+.campione {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: solid 1px rgba(0, 0, 0, 0.15);
+    padding: 0;
+    cursor: pointer;
+}
+
+/* il colore di ogni cerchio, preso dal suo data-color */
+.campione[data-color="#1b2a41"] { background: #1b2a41; }
+.campione[data-color="#6d1a2a"] { background: #6d1a2a; }
+.campione[data-color="#f2ead8"] { background: #f2ead8; }
+.campione[data-color="#8a9a7b"] { background: #8a9a7b; }
+.campione[data-color="#3e2a1e"] { background: #3e2a1e; }
+
+/* il campione scelto ha un anello scuro intorno */
+.campione.selected {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #222222;
+}
+
+
+/* PASSO 7: i bottoni del gruppo Misura (e di Accostamenti e Vista, che hanno lo stesso aspetto) */
+.misure,
+.accostamenti,
+.viste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.misura,
+.accostamento,
+.vista,
+.interruttore,
+.anima,
+.stanghette {
+    background: #ffffff;
+    color: #222222;
+    border: solid 1px #d9d3c7;
+    border-radius: 3px;
+    padding: 11px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.misura:hover,
+.accostamento:hover,
+.vista:hover,
+.interruttore:hover,
+.anima:hover,
+.stanghette:hover {
+    border-color: #222222;
+}
+
+/* la misura scelta è nera con la scritta bianca */
+.misura.selected,
+.accostamento.selected,
+.vista.selected,
+.interruttore.selected,
+.anima.selected,
+.stanghette.selected {
+    background: #222222;
+    color: #ffffff;
+    border-color: #222222;
+}
+
+
+/* nei bottoni degli Accostamenti: il nome sopra e i 4 colori sotto */
+.accostamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.accostamento-colori {
+    display: flex;
+    gap: 4px;
+}
+
+.accostamento-pallino {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: solid 1px rgba(0, 0, 0, 0.15);
+}
+
+/* sul bottone scelto (sfondo nero) il bordo dei pallini diventa chiaro, così si vedono */
+.accostamento.selected .accostamento-pallino {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* il cursore della Grandezza: largo quanto il pannello, del colore scuro dei bottoni scelti */
+.cursore {
+    width: 100%;
+    accent-color: #222222;
+    cursor: pointer;
+}
+
+/* ===== la galleria degli screen ===== */
+.galleria-voce {
+    margin: 0 0 24px 0;
+}
+
+/* ogni screen è un riquadro beige 4:3 con gli angoli arrotondati, come il visore;
+   l'immagine ha lo sfondo trasparente, quindi si vede il beige dietro il modello */
+.galleria-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #f3efe8;
+    border-radius: 6px;
+    color: transparent;   /* nasconde il testo alt mentre lo screen non è ancora pronto */
+    transition: background 0.6s;
+}
+
+/* a lampada accesa anche gli screen hanno lo sfondo scuro, come il visore */
+.visore.accesa ~ div .galleria-img {
+    background: #2e2b27;
+}
+
+.galleria-voce figcaption {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.55);
+    margin-top: 8px;
+}
+
+/* ===== nota e bottone ===== */
+.nota {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.55);
+    border-top: solid 1px #e5e0d6;
+    padding-top: 16px;
+    margin: 0;
+}
+
+.btn-principale {
+    display: block;
+    width: 100%;
+    background: #e06a35;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 14px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-principale:hover {
+    background: #c4541f;
+}
+
+/* ===== media query del configuratore ===== */
+@media (max-width: 991px) {
+    /* PASSO 8: il visore su tablet e telefono */
+}
+
+/* ===== la collezione di occhiali (row sotto il configuratore) ===== */
+.collezione-voce {
+    margin: 0 0 32px 0;
+}
+
+/* ogni modellino ha un riquadro beige quadrato, come il visore grande */
+/* è un <button>: tolgo l'aspetto da bottone e lo faccio diventare il riquadro */
+.collezione-visore {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: solid 1px transparent;
+    background: #f3efe8;
+    border-radius: 6px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    cursor: zoom-in;
+    transition: border-color 0.2s;
+}
+
+.collezione-visore:hover,
+.collezione-visore:focus-visible {
+    border-color: #222222;
+}
+
+.collezione-visore canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* il clic arriva al bottone */
+}
+
+.collezione-voce figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 10px;
+}
+
+.collezione-colore {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.collezione-pallino {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: solid 1px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+/* le montature trasparenti (cristallo): il colore della montatura sopra un pallino a scacchi, come lo sfondo "vuoto" dei programmi di grafica */
+.collezione-pallino.trasparente {
+    background: linear-gradient(rgba(214, 208, 196, 0.55), rgba(214, 208, 196, 0.55)), repeating-conic-gradient(#ffffff 0 25%, #bdb6a9 0 50%) 50% / 8px 8px;
+}
+
+.collezione-nome {
+    font-size: 14px;
+}
+
+.collezione-anche {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+/* se un modello non si carica, al posto del 3D compare una scritta */
+.collezione-visore.errore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collezione-visore.errore::after {
+    content: "Modello non disponibile";
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.collezione-visore.errore canvas {
+    display: none;
+}
+
+/* ===== la finestra zoom (si apre toccando un paio di occhiali) ===== */
+.zoom {
+    border: none;
+    padding: 0;                /* lo spazio interno è in .zoom-contenuto: così un clic sul bordo scuro chiude */
+    background: transparent;
+    width: min(960px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+}
+
+/* lo sfondo scuro dietro la finestra */
+.zoom::backdrop {
+    background: rgba(30, 28, 25, 0.6);
+}
+
+.zoom-contenuto {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 24px;
+}
+
+.zoom-testa {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.zoom-nome {
+    margin: 0;
+}
+
+.zoom-visore {
+    background: #f3efe8;
+    border-radius: 6px;
+    height: min(560px, 60vh);
+}
+
+.zoom-visore canvas {
+    display: block;
+    cursor: grab;
+    touch-action: none; /* sul telefono le dita girano e zoomano il modello invece di muovere la pagina */
+}
+
+.zoom-visore canvas:active {
+    cursor: grabbing;
+}
+
+.zoom-comandi {
+    display: flex;
+    gap: 8px;
+    padding: 16px 0;
+}
+
+.zoom-chiudi,
+.zoom-piu,
+.zoom-meno,
+.zoom-riparti {
+    background: #ffffff;
+    color: #222222;
+    border: solid 1px #d9d3c7;
+    border-radius: 3px;
+    padding: 11px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.zoom-piu,
+.zoom-meno {
+    min-width: 44px;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.zoom-chiudi:hover,
+.zoom-piu:hover,
+.zoom-meno:hover,
+.zoom-riparti:hover {
+    border-color: #222222;
+}
+
+/* con la finestra aperta la pagina sotto non scorre */
+body.zoom-aperto {
+    overflow: hidden;
+}
+
+@media (max-width: 575px) {
+    .zoom-contenuto {
+        padding: 16px;
+    }
+}
+
+/* ===== la prova con la fotocamera (dentro la finestra zoom) ===== */
+.zoom {
+    overflow: auto;   /* se la finestra è più alta dello schermo, si scorre */
+}
+
+.prova {
+    min-height: 200px;
+}
+
+/* il riquadro con il video e gli occhiali sopra: le misure le dà prova.js (come il video).
+   scaleX(-1) lo specchia, così ti vedi come in uno specchio (video e occhiali insieme) */
+.prova-scena {
+    position: relative;
+    margin: 0 auto;
+    background: #2e2b27;
+    border-radius: 6px;
+    overflow: hidden;
+    transform: scaleX(-1);
+}
+
+.prova-scena video,
+.prova-scena canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.prova-messaggio {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 12px 0 0 0;
+}
+
+.zoom-comandi {
+    flex-wrap: wrap;
+}
+
+/* il bottone della fotocamera va a destra */
+.zoom-modo {
+    margin-left: auto;
+    background: #222222;
+    color: #ffffff;
+    border: solid 1px #222222;
+    border-radius: 3px;
+    padding: 11px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.zoom-modo:hover {
+    background: #444444;
+}
+
+.zoom-modo.selected {
+    background: #ffffff;
+    color: #222222;
+    border-color: #d9d3c7;
+}
+
+/* la scelta degli occhiali: una fila di bottoni con pallino e nome */
+.zoom-scelta {
+    border-top: solid 1px #e5e0d6;
+    padding: 16px 0;
+}
+
+.zoom-elenco {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.zoom-voce {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #222222;
+    border: solid 1px #d9d3c7;
+    border-radius: 3px;
+    padding: 8px 12px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.zoom-voce:hover {
+    border-color: #222222;
+}
+
+.zoom-voce.selected {
+    background: #222222;
+    color: #ffffff;
+    border-color: #222222;
+}
+
+.zoom-voce.selected .collezione-pallino {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 575px) {
+    .zoom-modo {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* ===== le schede di dettaglio degli occhiali ===== */
+
+/* sotto ogni modellino: il tipo di occhiali */
+.collezione-tipo {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.55);
+    font-style: italic;
+}
+
+/* nella finestra zoom */
+.zoom-scheda {
+    border-top: solid 1px #e5e0d6;
+    padding: 16px 0;
+}
+
+.zoom-scheda:empty {
+    display: none;
+}
+
+.scheda-tipo {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0 0 6px 0;
+}
+
+.scheda-descrizione {
+    color: rgba(0, 0, 0, 0.75);
+    margin: 0 0 16px 0;
+}
+
+/* i dati in due colonne: nome a sinistra, valore a destra */
+.scheda-dati {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 8px 24px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.scheda-dati dt {
+    font-weight: bold;
+}
+
+.scheda-dati dd {
+    margin: 0;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+/* sul telefono: nome sopra, valore sotto */
+@media (max-width: 575px) {
+    .scheda-dati {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .scheda-dati dd {
+        margin-bottom: 8px;
+    }
+}
+
+/* ===== le foto della prova ===== */
+
+/* sicurezza: un elemento con l'attributo hidden resta nascosto anche se ha un display nel CSS */
+[hidden] {
+    display: none !important;
+}
+
+/* il bottone per scattare: arancione, come il bottone principale del sito */
+.zoom-scatta {
+    background: #e06a35;
+    color: #ffffff;
+    border: solid 1px #e06a35;
+    border-radius: 3px;
+    padding: 11px 18px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.zoom-scatta:hover {
+    background: #c4541f;
+    border-color: #c4541f;
+}
+
+/* il "flash" quando si scatta: un lampo bianco sopra il video */
+.prova-scena::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.prova-scena.flash::after {
+    animation: flash 0.4s ease-out;
+}
+
+@keyframes flash {
+    from { opacity: 0.85; }
+    to   { opacity: 0; }
+}
+
+.foto {
+    border-top: solid 1px #e5e0d6;
+    padding: 16px 0;
+}
+
+.foto-anteprima {
+    display: block;
+    max-width: 100%;
+    max-height: 40vh;
+    margin: 0 auto 12px auto;
+    border-radius: 6px;
+}
+
+.foto-azioni {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.foto-azioni button {
+    background: #ffffff;
+    color: #222222;
+    border: solid 1px #d9d3c7;
+    border-radius: 3px;
+    padding: 11px 14px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.foto-azioni button:hover {
+    border-color: #222222;
+}
+
+/* "Condividi" (solo sul telefono) è il più importante: nero */
+.foto-azioni .foto-condividi {
+    background: #222222;
+    color: #ffffff;
+    border-color: #222222;
+}
+
+.foto-messaggio {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    margin: 12px 0 0 0;
+}
+
+/* il rullino: le miniature di tutte le foto scattate */
+.foto-rullino {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 2px 2px 2px;
+}
+
+.foto-miniatura {
+    flex-shrink: 0;
+    width: 72px;
+    height: 54px;
+    padding: 0;
+    border: solid 2px transparent;
+    border-radius: 4px;
+    background: none;
+    cursor: pointer;
+}
+
+.foto-miniatura img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.foto-miniatura.selected {
+    border-color: #222222;
+}
+
+/* ===== i colori delle parti (nella finestra zoom) ===== */
+.zoom-colori {
+    border-top: solid 1px #e5e0d6;
+    padding: 16px 0;
+}
+
+/* i bottoni delle parti: Montatura, Lenti, Stanghette... */
+.colori-parti {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.colori-parte,
+.colori-originali {
+    background: #ffffff;
+    color: #222222;
+    border: solid 1px #d9d3c7;
+    border-radius: 3px;
+    padding: 8px 12px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.colori-parte:hover,
+.colori-originali:hover {
+    border-color: #222222;
+}
+
+.colori-parte.selected {
+    background: #222222;
+    color: #ffffff;
+    border-color: #222222;
+}
+
+/* "Campioni" e "Di tendenza" */
+.colori-gruppo {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 12px 0 4px 0;
+}
+
+.colori-originali {
+    margin-top: 12px;
+}
